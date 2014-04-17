@@ -50,7 +50,7 @@ describe('Test: .is', function() {
 				},
 				{
 					country_name: 'HK',
-					message: 'The item left Hong Kong for its destination on  19-Dec-2013 ',
+					message: 'The item left Hong Kong for its destination on 19-Dec-2013 ',
 					checkpoint_time: '2013-12-17T00:00:00'
 				},
 				{
