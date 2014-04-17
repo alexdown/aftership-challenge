@@ -20,9 +20,11 @@ describe('Test: .is', function() {
 			]
 		};
 		it('Expect return true', function() {
-			var result = Courier.usps('1ZXF68280392966078');
-			result.should.eql(usps);
+			Courier.usps('1ZXF68280392966078', function(err, result){
+				result.should.eql(usps);
+			});
 		});
+
 	});
 
 	// Courier: http://www.hongkongpost.com/
@@ -72,8 +74,9 @@ describe('Test: .is', function() {
 		};
 
 		it('Expect return true', function() {
-			var result = Courier.hkpost('CP889331175HK');
-			result.should.eql(hkpost);
+			Courier.hkpost('CP889331175HK', function(err, result){
+				result.should.eql(hkpost);
+			});
 		});
 	});
 
@@ -142,8 +145,10 @@ describe('Test: .is', function() {
 		};
 
 		it('Expect return true', function() {
-			var result = Courier.dpduk('15502370264989N');
-			result.should.eql(dpduk);
+			Courier.dpduk('15502370264989N', function(err, result){
+				result.should.eql(dpduk);
+			});
 		});
+
 	});
 });
