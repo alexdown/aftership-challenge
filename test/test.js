@@ -15,13 +15,14 @@ describe('Test: .is', function() {
 				{
 					country_name: '',
 					message: 'Delivered',
-					checkpoint_time: '2014-01-15T12:57:00'
+					checkpoint_time: '2014-01-15T11:57:00'
 				}
 			]
 		};
 		it('Expect return true', function() {
-			Courier.usps('1ZXF68280392966078', function(err, result){
-				result.should.eql(usps);
+			//Courier.usps('1ZXF68280392966078', function(retVal){
+			Courier.usps('9102999999302024326992', function(retVal){
+				retVal.should.eql(usps);
 			});
 		});
 
@@ -74,10 +75,11 @@ describe('Test: .is', function() {
 		};
 
 		it('Expect return true', function() {
-			Courier.hkpost('CP889331175HK', function(err, result){
-				result.should.eql(hkpost);
+			Courier.hkpost('CP889331175HK', function(retVal){
+				retVal.should.eql(hkpost);
 			});
 		});
+
 	});
 
 	describe('Track @ dpduk(\'15502370264989N\')', function() {
@@ -145,8 +147,8 @@ describe('Test: .is', function() {
 		};
 
 		it('Expect return true', function() {
-			Courier.dpduk('15502370264989N', function(err, result){
-				result.should.eql(dpduk);
+			Courier.dpduk('15502370264989N', function(retVal){
+				retVal.should.eql(dpduk);
 			});
 		});
 
