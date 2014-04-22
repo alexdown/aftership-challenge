@@ -19,11 +19,16 @@ describe('Test: .is', function() {
 				}
 			]
 		};
-		it('Expect return true', function() {
-			//Courier.usps('1ZXF68280392966078', function(retVal){
+
+		before(function(done){
 			Courier.usps('9102999999302024326992', function(retVal){
-				retVal.should.eql(usps);
+				result = retVal;
+				done();
 			});
+		});
+		
+		it('Expect return true', function() {
+			result.should.eql(usps);
 		});
 
 	});
@@ -33,6 +38,8 @@ describe('Test: .is', function() {
 	// Time need: less than an hour if you find the correct way
 
 	describe('Track @ hkpost(\'CP889331175HK\')', function() {
+
+		this.timeout(15000);
 
 		var hkpost = {
 			checkpoints: [
@@ -44,7 +51,7 @@ describe('Test: .is', function() {
 				{
 					country_name: 'HK',
 					message: 'In transit.',
-					checkpoint_time: '2013-12-12T00:00:00'
+					checkpoint_time: '2013-12-11T00:00:00'
 				},
 				{
 					country_name: 'HK',
@@ -53,7 +60,7 @@ describe('Test: .is', function() {
 				},
 				{
 					country_name: 'HK',
-					message: 'The item left Hong Kong for its destination on 19-Dec-2013 ',
+					message: 'The item left Hong Kong for its destination on 19-Dec-2013',
 					checkpoint_time: '2013-12-17T00:00:00'
 				},
 				{
@@ -64,20 +71,25 @@ describe('Test: .is', function() {
 				{
 					country_name: 'NZ',
 					message: 'In transit.',
-					checkpoint_time: '2014-01-15T00:00:00'
+					checkpoint_time: '2014-01-14T00:00:00'
 				},
 				{
 					country_name: 'NZ',
 					message: 'Delivered.',
-					checkpoint_time: '2014-01-16T00:00:00'
+					checkpoint_time: '2014-01-15T00:00:00'
 				}
 			]
 		};
 
-		it('Expect return true', function() {
+		before(function(done){
 			Courier.hkpost('CP889331175HK', function(retVal){
-				retVal.should.eql(hkpost);
+				result = retVal;
+				done();
 			});
+		});
+		
+		it('Expect return true', function() {
+			result.should.eql(hkpost);
 		});
 
 	});
@@ -146,10 +158,15 @@ describe('Test: .is', function() {
 		]
 		};
 
-		it('Expect return true', function() {
+		before(function(done){
 			Courier.dpduk('15502370264989N', function(retVal){
-				retVal.should.eql(dpduk);
+				result = retVal;
+				done();
 			});
+		});
+		
+		it('Expect return true', function() {
+			result.should.eql(dpduk);
 		});
 
 	});
